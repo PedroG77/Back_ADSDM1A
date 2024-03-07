@@ -1,0 +1,17 @@
+{
+  "name": "pratica-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "indexpratica2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
