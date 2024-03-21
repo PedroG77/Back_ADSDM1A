@@ -1,25 +1,22 @@
-const supertest = require('supertest');
-
+const supertest = require ('supertest');
 const app = require('./index');
-
 const request = supertest(app);
 
-test("Deve retornar status 200 e um JSON no GET",
-async function() {
-  const response = await request.get("/produtos");
-  expect(response.status).toBe(200);
-  expect(response.headers['content-type'])
-    .toMatch(/json/);
-});
 
+test("Deve retornar status 200 e um JSON no GET",
+async function(){
+    const response = await request.get("/produtos");
+    expect(response.status).toBe(200);
+    expect(response.headers['content-type'])
+    .toMatch(/json/);
+})
 test("Deve retornar status 201 e um JSON no POST",
 async function() {
-  const response = await request.post("/produtos").send({nome: "Banana nanica", preco: 15.00});
+  const response = await request.post("/produtos").send({nome: "Uva", preco: 20.00});
   expect(response.status).toBe(201);
   expect(response.headers['content-type'])
     .toMatch(/json/);
 });
-
 test("Deve retornar status 200 e um JSON no GET id",
 async function() {
   const response = await request.get("/produtos/1");
@@ -35,7 +32,6 @@ async function() {
   expect(response.headers['content-type'])
     .toMatch(/json/);
 });
-
 test("Deve retornar status 422 e um JSON no POST",
 async function() {
   const response = await request.post("/produtos");
@@ -43,16 +39,14 @@ async function() {
   expect(response.headers['content-type'])
     .toMatch(/json/);
 });
-
 test("Deve retornar status 200 e um JSON no PUT",
 async function() {
   const response = await request.put("/produtos/1")
-    .send({nome: "Banana prata", preco: 18.00});
+    .send({nome: "Uva Verde", preco: 18.00});
   expect(response.status).toBe(200);
   expect(response.headers['content-type'])
     .toMatch(/json/);
 });
-
 test("Deve retornar status 404 e um JSON no PUT",
 async function() {
   const response = await request.put("/produtos/100");
@@ -75,3 +69,5 @@ async function() {
   expect(response.headers['content-type'])
     .toMatch(/json/);
 });
+
+
